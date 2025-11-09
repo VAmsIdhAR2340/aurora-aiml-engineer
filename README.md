@@ -4,25 +4,8 @@ A production-ready question-answering system built with RAG (Retrieval-Augmented
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-green.svg)](https://fastapi.tiangolo.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Live Demo**: [Your Deployed URL Here]
-
----
-
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Quick Start](#quick-start)
-- [API Documentation](#api-documentation)
-- [Example Queries](#example-queries)
-- [Bonus 1: Design Considerations](#bonus-1-design-considerations)
-- [Bonus 2: Data Insights](#bonus-2-data-insights)
-- [Deployment](#deployment)
-- [Tech Stack](#tech-stack)
-
----
 
 ## Overview
 
@@ -46,39 +29,8 @@ The system uses semantic search to find relevant messages and an LLM to generate
 
 ---
 
-## Architecture
+## Architecture Flow
 
-┌──────────────┐ 
-│ User Question│
-│              │ 
-└──────────────┘ 
-        │
-        ▼
-┌──────────────┐
-│ Data Loader  │
-│ (Caching)    │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ FAISS        │
-│ Vector Store │
-│ (Embeddings) │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ Perplexity   │
-│ LLM (Sonar)  │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ Answer       │
-│ JSON         │
-└──────────────┘
-
-**Flow:**
 1. **User submits question** via `/ask` endpoint
 2. **Data Loader** fetches and caches all member messages
 3. **FAISS Vector Store** retrieves top-10 most relevant messages using semantic search
@@ -108,12 +60,13 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 - uvicorn app.main:app --reload --port 8000
 
 ### **Test**
+```
 Visit http://localhost:8000/docs or:
 
 curl -X POST "http://localhost:8000/ask"
 -H "Content-Type: application/json"
 -d '{"question": "When is Layla planning her trip to London?"}'
-
+```
 ### Tech Stack
 
 - **Framework**: FastAPI
@@ -129,12 +82,16 @@ curl -X POST "http://localhost:8000/ask"
 ### `POST /ask` - Ask a Question
 
 **Request:**
-curl -Method Post "http://127.0.0.1:8000/ask" `
-      -Headers @{"Content-Type"="application/json"} `
-      -Body '{"question":"When is Layla planning her trip to London?"}
+```bash
+curl -X POST "http://127.0.0.1:8000/ask" \
+  -H "Content-Type: application/json" \
+  -d '{"question": "When is Layla planning her trip to London?"}'
+```
 
 **Response:**
+```
 {"answer":"Layla Kawaguchi is planning her trip to London around March 11, 2025, as she requested a car service to meet her upon arrival in London on that date."}
+```
 
 ## Bonus 1: Design Notes
 
@@ -259,6 +216,11 @@ curl -Method Post "http://127.0.0.1:8000/ask" `
 | Thiago Monteiro | 361 | 10.8% |
 | Fatima El-Tahir | 349 | 10.4% |
 | Sophia Al-Farsi | 346 | 10.3% |
+| Amina Van Den Berg | 342 | 10.2% |
+| Vikram Desai | 335 | 10.0% |
+| Layla Kawaguchi | 330 | 9.9% |
+| Armand Dupont | 319 | 9.5% |
+| Hans Müller | 314 | 9.4% |
 | Lorenzo Cavalli | 288 | 8.6% |
 
 **Observation**: Unusually uniform distribution suggests synthetic test data. Real usage typically follows Pareto principle (80/20).
