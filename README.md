@@ -5,7 +5,11 @@ A production-ready question-answering system built with RAG (Retrieval-Augmented
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-green.svg)](https://fastapi.tiangolo.com/)
 
-**Live Demo**: [Your Deployed URL Here]
+**Live Demo**: https://aurora-aiml-engineer.onrender.com/
+Above is my deployed URL, the site would be inactive if there is no one visiting, so if it all you see that, just wait for 50-60 seconds and reload the site.
+
+**Video Recording**: https://drive.google.com/file/d/1o_MULjOSMsfH_4MvBAPYBoqE79eOpiaw/view?usp=sharing
+Above is the video recording link.
 
 ## Overview
 
