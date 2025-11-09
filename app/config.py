@@ -21,7 +21,7 @@ class Config:
     LLM_MAX_TOKENS: int = 200
     
     # Embeddings
-    EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
+    EMBEDDING_MODEL: str = "paraphrase-MiniLM-L3-v2"
     
     # Retrieval Configuration
     TOP_K_RESULTS: int = 10

@@ -23,6 +23,9 @@ logger = logging.getLogger(__name__)
 qa_engine = None
 executor = ThreadPoolExecutor(max_workers=3)  # For CPU-bound operations
 
+logging.getLogger("uvicorn.access").addFilter(
+    lambda record: "/v1/models" not in record.getMessage()
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -345,8 +348,6 @@ async def list_models():
             }
         ]
     }
-
-
 
 if __name__ == "__main__":
     import uvicorn
