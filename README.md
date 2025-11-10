@@ -65,9 +65,10 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 ### **Test**
 ```
-Visit http://localhost:8000/docs or:
+In local: Visit http://localhost:8000/docs or:
+In Website: Visit: https://aurora-aiml-engineer.onrender.com/
 
-curl -X POST "http://localhost:8000/ask"
+For local: curl -X POST "http://localhost:8000/ask" / To test using website link: https://aurora-aiml-engineer.onrender.com/ask
 -H "Content-Type: application/json"
 -d '{"question": "When is Layla planning her trip to London?"}'
 ```
