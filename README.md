@@ -88,7 +88,7 @@ For local: curl -X POST "http://localhost:8000/ask" / To test using website link
 
 **Request:**
 ```bash
-curl -X POST "http://127.0.0.1:8000/ask" \
+curl -X POST "https://aurora-aiml-engineer.onrender.com/ask" \
   -H "Content-Type: application/json" \
   -d '{"question": "When is Layla planning her trip to London?"}'
 ```
