@@ -67,7 +67,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 Visit: https://aurora-aiml-engineer.onrender.com/
 
-For local: curl -X POST "https://aurora-aiml-engineer.onrender.com/ask"
+curl -X POST "https://aurora-aiml-engineer.onrender.com/ask"
 -H "Content-Type: application/json"
 -d '{"question": "When is Layla planning her trip to London?"}'
 ```
